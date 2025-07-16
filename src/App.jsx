@@ -21,9 +21,11 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://hosp-backend.onrender.com/api/v1/user/patient/me",
-          {
-            withCredentials: true,
+          "https://hosp-backend.onrender.com/api/v1/user/patient/me",{
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+  withCredentials: true,
           }
         );
         setIsAuthenticated(true);
